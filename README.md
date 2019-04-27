@@ -1,6 +1,8 @@
 # Data_Sci_Bot
 ![DsB](https://github.com/archieparedes/Data_Sci_Bot/blob/master/Dsb.PNG)
 
+DEMO and OVERVIEW: https://www.youtube.com/watch?v=FoP7AG08YWI
+
 Requirements:
 
     1.) Discord api
