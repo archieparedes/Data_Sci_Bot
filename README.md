@@ -14,8 +14,12 @@ Requirements:
 
 How to Run:
 
-1.) make/Edit token's first line with token key before running.
+1.) make/Edit token first line with token key before running.
 
 
 
-2.) Run DsB.js as a Node JS program
+2.) npm install                      //node modules needed
+
+
+
+3.) Run DsB.js as a Node JS program
