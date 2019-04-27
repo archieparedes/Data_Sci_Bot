@@ -1,73 +1,73 @@
-java,37
-r,0
-python,12
-c#,0
-ruby,9
-algorithms,3
-object oriented,28
-data structures,4
-web framework,0
-node js,9
-angular,13
-react,12
-sql,50
-mysql,12
-html,23
-css,29
-redis,0
-javascript,43
-linux,14
-mongodb,5
-php,11
+java,150
+r,5
+python,82
+c#,127
+ruby,22
+algorithms,30
+object oriented,84
+data structures,20
+web framework,2
+node js,40
+angular,52
+react,40
+sql,164
+mysql,37
+html,87
+css,82
+redis,8
+javascript,158
+linux,53
+mongodb,14
+php,39
 rust,0
-scala,1
-swift,2
-android,9
-ios,9
-c,45
-asp,15
-xsl,0
-xml,5
-mvc,8
+scala,8
+swift,6
+android,31
+ios,26
+c,72
+asp,45
+xsl,1
+xml,34
+mvc,43
 silverlight,0
-oracle,7
-objective c,3
+oracle,26
+objective c,10
 meteor,0
 django,2
-bootstrap,8
-drupal,0
-ember,3
-wordpress,2
-net,36
-backbone,1
+bootstrap,25
+drupal,1
+ember,4
+wordpress,6
+net,110
+backbone,6
 cordova,0
-ionic,0
-jquery,13
+ionic,1
+jquery,60
 underscore,0
-postgresql,2
+postgresql,13
 postgre,0
-rest,11
-json,4
+rest,35
+json,22
 csv,0
-api,8
-rspec,0
-vue,4
-git,21
-cloud,15
-pl,2
-visual basic,1
-delphi,0
-maven,3
-junit,0
+api,39
+rspec,2
+vue,8
+git,58
+cloud,60
+pl,6
+visual basic,6
+delphi,3
+maven,10
+junit,8
 derby,0
-lucene,0
-salesforce,1
-phpunit,0
+lucene,1
+salesforce,4
+phpunit,1
 nunit,1
 dbunit,0
-selenium,1
-sqlite,1
-microsoft office,1
-unix,6
-bi,0
+selenium,5
+sqlite,2
+microsoft office,10
+unix,13
+bi,4
 aws,2

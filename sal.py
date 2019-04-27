@@ -6,7 +6,7 @@ Indeed - Salary puller
 """
 import sys
 #import csv
-import re
+#import re
 import requests
 from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen as ur
@@ -19,6 +19,7 @@ from urllib.parse import urljoin
 # file.write(sys.argv[1] + " " + sys.argv[2] + " size:" + str(len(sys.argv)))
 # file.close() 
 
+# url inits
 if(len(sys.argv) == 3):
     url = "https://www.indeed.com/jobs?q={}+{}&l=".format(sys.argv[1], sys.argv[2])
 elif(len(sys.argv) == 2):
@@ -27,7 +28,6 @@ elif(len(sys.argv) == 4):
     url = "https://www.indeed.com/jobs?q={}+{}+{}&l=".format(sys.argv[1], sys.argv[2], sys.argv[3])
 else:
     raise Exception('Invalid job title')
-    
 
 uClient = ur(url)
 pageText = uClient.read()
@@ -38,10 +38,11 @@ avg = pageSoup.find(attrs={"id": "univsrch-salary-currentsalary"})
 minimum = pageSoup.find(attrs={"class": "univsrch-sal-min univsrch-sal-caption float-left"})
 maximum = pageSoup.find(attrs={"class": "univsrch-sal-max univsrch-sal-caption float-right"})
 
-avgAmount = ""
-minAmount = ""
-maxAmount = ""
+# avgAmount = ""
+# minAmount = ""
+# maxAmount = ""
 
+# these prints are sent to DsB.js using Python Shell
 print("Avg",avg.text)
 print(maximum.text)
 print(minimum.text)

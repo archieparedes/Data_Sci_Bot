@@ -2,7 +2,7 @@
 @author Archie_Paredes
 @created JAN 26, 2018
 @version 1.0
-Indeed API - URL puller software developer
+Indeed API - URL puller software engineer
 
 **** ONLY ON LINUX ****
 """
@@ -59,11 +59,11 @@ techFound = {"java":False,"r":False,"python":False, "c#":False,"ruby":False,"alg
 	"sqlite":False,"microsoft office":False,"unix":False,"bi":False,"api":False}
 
 linkCount = 0
-url = "https://www.indeed.com/jobs?q=software+developer&start="
+url = "https://www.indeed.com/jobs?q=software+engineer&start="
 links = list()
 titles = list()
 companies = list()
-for i in range (0,100): 
+for i in range (0,16): 
     try: # for error 404s
         url += "{}0".format(i) # reinitialize url with page number
         print("page: ", url)
@@ -125,13 +125,13 @@ for i in range (0,100):
             techFound = {x: False for x in techFound}  
     except:
         pass 
-    url = "https://www.indeed.com/jobs?q=software+developer&start="
+    url = "https://www.indeed.com/jobs?q=software+engineer&start="
 
 print("Amount of links: ", linkCount)
 print("Writing to CSV")
 aws = 0
 
-with open('softData.csv', 'w+', newline = '') as csv_file:
+with open('engData.csv', 'w+', newline = '') as csv_file:
     writer = csv.writer(csv_file)
     for key, value in tech.items():
         if(key == "aws" or key == "amazon web"):

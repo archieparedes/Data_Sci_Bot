@@ -2,7 +2,9 @@
 @author Archie_Paredes
 @created JAN 26, 2018
 @version 1.0
-Indeed API - URL puller
+Indeed API - URL puller data science
+
+**** ONLY ON LINUX ****
 """
 
 import csv
@@ -45,52 +47,54 @@ techFound = {"python":False, "r":False, "jasper":False, "sql":False, "tableau":F
 linkCount = 0
 url = "https://www.indeed.com/jobs?q=data+scientist&start="
 
-for i in range (0,50): 
-    url += "{}0".format(i) # reinitialize url with page number
-    res = requests.get(url)
-    soup = bs(res.content, "lxml")
-    for link in soup.select('[data-tn-element="jobTitle"]'):
-        absolute_link = urljoin(url,link.get("href"))
-        uClient = ur(absolute_link) #opens site, and gets page
-        pageText = uClient.read() # html
-        uClient.close() #closes sites
-        linkCount += 1
-        pageSoup = bs(pageText, "html.parser") #html parser
+for i in range (0,100): 
+    try: # for error 404s
+        url += "{}0".format(i) # reinitialize url with page number
+        res = requests.get(url)
+        soup = bs(res.content, "lxml")
+        for link in soup.select('[data-tn-element="jobTitle"]'):
+            absolute_link = urljoin(url,link.get("href"))
+            uClient = ur(absolute_link) #opens site, and gets page
+            pageText = uClient.read() # html
+            uClient.close() #closes sites
+            linkCount += 1
+            pageSoup = bs(pageText, "html.parser") #html parser
 
-        intro = pageSoup.findAll("p") # job description
-        middle = pageSoup.findAll("li") # tech
-        for i in middle:
-            if(str(i)[3] == ' '):
-                pass
-            else:
-                line = (str(i)[4:-5]).lower()
+            intro = pageSoup.findAll("p") # job description
+            middle = pageSoup.findAll("li") # tech
+            for i in middle:
+                if(str(i)[3] == ' '):
+                    pass
+                else:
+                    line = (str(i)[4:-5]).lower()
 
-                # deletes any special chars. Helps with data collection
-                for k in line.split("\n"):
-                    line = re.sub(r"[^a-zA-Z0-9]+", ' ', k) # replace special characters with space
+                    # deletes any special chars. Helps with data collection
+                    for k in line.split("\n"):
+                        line = re.sub(r"[^a-zA-Z0-9]+", ' ', k) # replace special characters with space
 
-                # adds 1 to tech if found
-                for t1,t2 in now_next(line.split()):
-                    if(t1 in tech and techFound[t1] == False): 
-                        tech[t1] = tech[t1] + 1 # adds a tally
-                        techFound[t1] = True # prevents duplicates
-                    else:
-                        try:
-                            twoString = t1+" "+t2 # finds two string
-                            if(twoString in tech):
-                                tech[twoString] = tech[twoString] + 1 
-                                techFound[twoString] = True # prevents duplicates
-                        except:
-                            pass
-                        
-        techFound = {x: False for x in techFound}                
+                    # adds 1 to tech if found
+                    for t1,t2 in now_next(line.split()):
+                        if(t1 in tech and techFound[t1] == False): 
+                            tech[t1] = tech[t1] + 1 # adds a tally
+                            techFound[t1] = True # prevents duplicates
+                        else:
+                            try:
+                                twoString = t1+" "+t2 # finds two string
+                                if(twoString in tech):
+                                    tech[twoString] = tech[twoString] + 1 
+                                    techFound[twoString] = True # prevents duplicates
+                            except:
+                                pass
+                            
+            techFound = {x: False for x in techFound}
+    except:
+        pass
     url = "https://www.indeed.com/jobs?q=data+scientist&l="
 
 print("Amount of links: ", linkCount)
 print("Writing to CSV")
 torch = 0
 aws = 0
-
 
 with open('techData.csv', 'w+', newline = '') as csv_file:
     writer = csv.writer(csv_file)

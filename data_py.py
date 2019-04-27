@@ -12,7 +12,7 @@ with open('techData.csv') as csvfile:
     read = csv.reader(csvfile, delimiter = ',')
     for row in read:
         if(int(row[1]) <= 0):
-           pass
+           continue
         if(row[0] == "machine learning"):
             tech.append('ML')
         elif(row[0] == "amazon web service"):
@@ -22,7 +22,7 @@ with open('techData.csv') as csvfile:
         val.append(int(row[1]))
 
 index = np.arange(len(tech))
-plt.bar(index, val, align = 'center', alpha = 1)
+plt.bar(index, val, align = 'center', alpha = 1, color = '#00B140')
 plt.xlabel('Technology', fontsize=12)
 plt.ylabel('Tech Demand', fontsize=12)
 plt.xticks(index, tech, fontsize=5, rotation=90)
