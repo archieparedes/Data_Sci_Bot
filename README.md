@@ -1,7 +1,7 @@
 # Data_Sci_Bot
 ![DsB](https://github.com/archieparedes/Data_Sci_Bot/blob/master/Dsb.PNG)
 
-DEMO and OVERVIEW: https://www.youtube.com/watch?v=FoP7AG08YWI
+DEMO and OVERVIEW: https://youtu.be/u7soryWYanE
 
 Requirements:
 
