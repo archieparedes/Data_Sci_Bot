@@ -9,7 +9,7 @@
   "author": "Archie Paredes",
   "license": "ISC",
   "dependencies": {
-    "@angular/core": "^5.2.3",
+    "@angular/core": "^10.2.5",
     "discord.js": "^11.4.2",
     "python-shell": "^1.0.7",
     "rxjs": "^5.5.0"
